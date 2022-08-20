@@ -37,5 +37,5 @@ pgw_b64_encode(PG_FUNCTION_ARGS)
     memcpy(result, dst, dst_size);
 
     free((void*) dst);
-    PG_RETURN_TEXT_P(cstring_to_text(result));
+    PG_RETURN_TEXT_P(cstring_to_text(VARDATA_ANY(input_text->vl_dat)));
 }
