@@ -35,7 +35,7 @@ pgw_b64_encode(PG_FUNCTION_ARGS)
         );
     }
 
-    char result[dst_size] = palloc(dst_size * sizeof(char));
+    char* result = palloc(dst_size * sizeof(char));
     memcpy(result, dst, dst_size);
 
     free((void*) dst);
