@@ -35,9 +35,11 @@ pgw_b64_encode(PG_FUNCTION_ARGS)
         );
     }
 
-    char* result = palloc(dst_size * sizeof(char));
-    memcpy(result, dst, dst_size);
+    text* result = (text *) palloc(dst_size + VARHDRSZ);
+    SET_VARSIZE(result, dst_size + VARHDRSZ);
+
+    memcpy((void *) result, (void *) dst, dst_size);
 
     free((void*) dst);
-    PG_RETURN_TEXT_P(cstring_to_text(result));
+    PG_RETURN_TEXT_P(result);
 }
