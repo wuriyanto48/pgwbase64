@@ -35,8 +35,8 @@ pgw_b64_encode(PG_FUNCTION_ARGS)
         );
     }
 
-    text* result = (text *) palloc(dst_size + VARHDRSZ);
-    SET_VARSIZE(result, dst_size + VARHDRSZ);
+    text* result = (text *) palloc(dst_size);
+    SET_VARSIZE(result, dst_size);
 
     memcpy((void *) result, (void *) dst, dst_size);
 
