@@ -1,7 +1,7 @@
-EXTENSION = wbase64        # the extensions name
-DATA = wbase64--0.0.1.sql  # script files to install
+EXTENSION = wbase64        # extensions name
+DATA = wbase64--0.0.1.sql  # script
 OBJS = wbase64.o
-# postgres build stuff
+# build
 PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
