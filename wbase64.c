@@ -23,7 +23,7 @@ pgw_b64_encode(PG_FUNCTION_ARGS)
 
     unsigned char* dst = NULL;
     size_t dst_size = 0;
-    int encode_ok = encode_b64(input_text->vl_dat, 0, &dst, &dst_size);
+    int encode_ok = encode_b64(VARDATA_ANY(input_text->vl_dat), 0, &dst, &dst_size);
     if (encode_ok != 0)
     {
         ereport(ERROR,
@@ -33,7 +33,9 @@ pgw_b64_encode(PG_FUNCTION_ARGS)
         );
     }
 
-    PG_RETURN_TEXT_P(cstring_to_text(input_text->vl_dat));
+    char* result = palloc(dst_size * sizeof(char));
+    memcpy(result, dst, dst_size);
 
     free((void*) dst);
+    PG_RETURN_TEXT_P(cstring_to_text(input_text->vl_dat));
 }
