@@ -5,6 +5,12 @@ Base64 PostgreSQL Extension
 ## Getting started
 
 ### Building
+
+Clone
+```shell
+$ git clone https://github.com/wuriyanto48/pgwbase64.git
+```
+
 Install PostgreSQL Development server and client
 ```shell
 $ sudo apt install libpq-dev
