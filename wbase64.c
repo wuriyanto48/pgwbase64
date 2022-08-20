@@ -34,8 +34,9 @@ Datum pgw_b64_encode(PG_FUNCTION_ARGS)
         );
     }
 
-    char* result = palloc(dst_size * sizeof(char));
+    char* result = palloc(dst_size + 1);
     memcpy((void*) result, (void*) dst, dst_size);
+    result[dst_size] = '\0';
 
     free((void*) dst);
     PG_RETURN_TEXT_P(cstring_to_text(result));
@@ -69,8 +70,9 @@ Datum pgw_b64_decode(PG_FUNCTION_ARGS)
         );
     }
 
-    char* result = palloc(dst_size * sizeof(char));
+    char* result = palloc(dst_size + 1);
     memcpy((void*) result, (void*) dst, dst_size);
+    result[dst_size] = '\0';
 
     free((void*) dst);
     PG_RETURN_TEXT_P(cstring_to_text(result));
