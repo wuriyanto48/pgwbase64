@@ -170,7 +170,7 @@ int decode_b64(const unsigned char* src, size_t src_size,
         return B64_DECODE_FAIL;
 
     FILE* base64_in_f = fmemopen((void*)src, src_size, "r");
-    FILE* text_f = fmemopen((void*)_dst, sizeof(*_dst) * _dst_size, "w");
+    FILE* text_f = fmemopen((void*)_dst, sizeof(*_dst) * _dst_size + 1, "w");
 
     unsigned char buffer[5];
     uint32_t size_out = 0;
