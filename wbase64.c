@@ -35,9 +35,9 @@ pgw_b64_encode(PG_FUNCTION_ARGS)
         );
     }
 
-    char* result = palloc(dst_size * sizeof(char));
+    char result[dst_size] = palloc(dst_size * sizeof(char));
     memcpy(result, dst, dst_size);
 
     free((void*) dst);
-    PG_RETURN_TEXT_P(cstring_to_text(input_text_cleaned));
+    PG_RETURN_TEXT_P(cstring_to_text(result));
 }
