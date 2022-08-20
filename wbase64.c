@@ -33,7 +33,7 @@ pgw_b64_encode(PG_FUNCTION_ARGS)
         );
     }
 
-    free((void*) dst);
+    // free((void*) dst);
 
     PG_RETURN_TEXT_P(cstring_to_text(dst));
 }
