@@ -2,8 +2,9 @@
 
 Base64 PostgreSQL Extension
 
-### Getting started
+## Getting started
 
+### Building
 Install PostgreSQL Development server and client
 ```shell
 $ sudo apt install libpq-dev
@@ -21,6 +22,8 @@ Install extensions
 ```shell
 $ sudo make USE_PGXS=1 install
 ```
+
+### Install to Database
 
 Login as superuser
 ```shell
