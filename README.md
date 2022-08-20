@@ -18,6 +18,13 @@ $ cc -shared -o wbase64.so wbase64.o
 $ sudo cp wbase64.so  /usr/lib/postgresql/10/lib/
 ```
 
+#### Notes
+To find out what `$libdir` is referring to, run the following command:
+```shell
+$ pg_config --pkglibdir
+/usr/lib/postgresql/10/lib
+```
+
 Install extensions
 ```shell
 $ sudo make USE_PGXS=1 install
