@@ -2,6 +2,9 @@
 
 Base64 PostgreSQL Extension
 
+## Motivation/ Why ?
+This is just part of my learning process
+
 ## Getting started
 
 ### Building
